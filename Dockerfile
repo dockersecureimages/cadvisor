@@ -1,6 +1,6 @@
 FROM google/cadvisor:v0.32.0 AS cadvisor
 
-FROM alpine:3.12.0
+FROM alpine:3.12.1
 LABEL website="Secure Docker Images https://secureimages.dev"
 LABEL description="We secure your business from scratch."
 LABEL maintainer="hireus@secureimages.dev"
