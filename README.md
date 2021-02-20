@@ -2,63 +2,62 @@
 
 cAdvisor, image is based on the Alpine base image with 0 vulnerabilities.
 
-## Current Docker image (~140MB)
+## Current Docker image (~75.3MB)
 
 Security scanning using Clair
 ```
-clair-scanner secureimages/cadvisor:0.32.0-alpine-3.13.2
-2021/02/20 14:34:45 [INFO] ▶ Start clair-scanner
-2021/02/20 14:34:47 [INFO] ▶ Server listening on port 9279
-2021/02/20 14:34:47 [INFO] ▶ Analyzing b73bac2fe5a7b9d1abcbf0138798281e20b11e59b4605b104d38e914fa35b4d2
-2021/02/20 14:34:47 [INFO] ▶ Analyzing d9f78caf00a86cf09e9a6d7ce16172fb6b9ce76a20319687f32e05e930a94466
-2021/02/20 14:34:47 [INFO] ▶ Analyzing 122e618e67cb3004e3403d74549278f40930aa656b90d26a3682fd7d207d677e
-2021/02/20 14:34:47 [WARN] ▶ Image [secureimages/cadvisor:0.32.0-alpine-3.13.2] contains 1 total vulnerabilities
-2021/02/20 14:34:47 [ERRO] ▶ Image [secureimages/cadvisor:0.32.0-alpine-3.13.2] contains 1 unapproved vulnerabilities
+clair-scanner secureimages/cadvisor:0.37.5-alpine-3.13.2
+2021/02/20 14:46:32 [INFO] ▶ Start clair-scanner
+2021/02/20 14:46:33 [INFO] ▶ Server listening on port 9279
+2021/02/20 14:46:33 [INFO] ▶ Analyzing b73bac2fe5a7b9d1abcbf0138798281e20b11e59b4605b104d38e914fa35b4d2
+2021/02/20 14:46:33 [INFO] ▶ Analyzing 96c2f1270eeaa3749395a3d0d1248925f13dd15ec65cfc39abd97208e98b984d
+2021/02/20 14:46:33 [INFO] ▶ Analyzing e61dc8d43a28e63d3cec6225e727b32d4077eb5ebeea5d0f20d8cf7ff1eb3e91
+2021/02/20 14:46:33 [INFO] ▶ Analyzing f387a990a99cbed4820e998605222cce1c81d3adaae2e7451fb9d6562ba28e05
+2021/02/20 14:46:33 [WARN] ▶ Image [secureimages/cadvisor:0.37.5-alpine-3.13.2] contains 1 total vulnerabilities
+2021/02/20 14:46:33 [ERRO] ▶ Image [secureimages/cadvisor:0.37.5-alpine-3.13.2] contains 1 unapproved vulnerabilities
 ```
 
 Security scanning using Trivy
 ```
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.16.0 --no-progress secureimages/cadvisor:0.32.0-alpine-3.13.2
-2021-02-20T14:34:51.832Z        INFO    Need to update DB
-2021-02-20T14:34:51.832Z        INFO    Downloading DB...
-2021-02-20T14:34:56.251Z        INFO    Detecting Alpine vulnerabilities...
-2021-02-20T14:34:56.252Z        INFO    Trivy skips scanning programming language libraries because no supported file was detected
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.16.0 --no-progress secureimages/cadvisor:0.37.5-alpine-3.13.2
+2021-02-20T14:46:38.726Z        INFO    Need to update DB
+2021-02-20T14:46:38.726Z        INFO    Downloading DB...
+2021-02-20T14:46:42.345Z        INFO    Detecting Alpine vulnerabilities...
+2021-02-20T14:46:42.346Z        INFO    Trivy skips scanning programming language libraries because no supported file was detected
 
-secureimages/cadvisor:0.32.0-alpine-3.13.2 (alpine 3.13.2)
+secureimages/cadvisor:0.37.5-alpine-3.13.2 (alpine 3.13.2)
 ==========================================================
 Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 ```
 
-## Official Docker image (~69.6MB)
+## Official Docker image (~160MB)
 
 [https://hub.docker.com/r/google/cadvisor](https://hub.docker.com/r/prom/google/cadvisor)
 ```
-docker pull google/cadvisor:v0.32.0
+docker pull gcr.io/cadvisor/cadvisor:v0.37.5
 ```
 
 Security scanning using Clair
 ```
-clair-scanner google/cadvisor:v0.32.0
-2021/02/20 14:35:02 [INFO] ▶ Start clair-scanner
-2021/02/20 14:35:02 [INFO] ▶ Server listening on port 9279
-2021/02/20 14:35:02 [INFO] ▶ Analyzing 498654318d0999ce36c7b90901ed8bd8cb63d86837cb101ea1ec9bb092f44e59
-2021/02/20 14:35:02 [INFO] ▶ Analyzing f3b97535eef0cfec768c835cc2294e30bc57dba8c1dd8a568a1a03b6fed915a3
-2021/02/20 14:35:03 [INFO] ▶ Analyzing 584984aa43831109bef38f32680451320bf280da8d1736e91dd0fe6100173d13
-2021/02/20 14:35:03 [WARN] ▶ Image [google/cadvisor:v0.32.0] contains 4 total vulnerabilities
-2021/02/20 14:35:03 [ERRO] ▶ Image [google/cadvisor:v0.32.0] contains 4 unapproved vulnerabilities
+clair-scanner gcr.io/cadvisor/cadvisor:v0.37.5
+2021/02/20 14:46:46 [INFO] ▶ Start clair-scanner
+2021/02/20 14:46:48 [INFO] ▶ Server listening on port 9279
+2021/02/20 14:46:48 [INFO] ▶ Analyzing ff72598b05f57e6f83d56b858ba9783796e99aea2dcef391b3fa688c1e077ae5
+2021/02/20 14:46:48 [INFO] ▶ Analyzing d1eba729283ae7623a00a703ffa881e29a805352d534de77f5cb1c0a1106e1aa
+2021/02/20 14:46:48 [INFO] ▶ Analyzing c51ce0bf1901da406faee7869fabe6c39ebb9d9aabb909ef36f5b0954f034598
+2021/02/20 14:46:48 [INFO] ▶ Analyzing cc7cc0b71a9683e75fa923ad5502e524b5bfcbf379b7c777b00ce308d0c82288
+2021/02/20 14:46:48 [INFO] ▶ Image [gcr.io/cadvisor/cadvisor:v0.37.5] contains NO unapproved vulnerabilities
 ```
 
 Security scanning using Trivy
 ```
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.16.0 --no-progress google/cadvisor:v0.32.0
-2021-02-20T14:35:07.167Z        INFO    Need to update DB
-2021-02-20T14:35:07.167Z        INFO    Downloading DB...
-2021-02-20T14:35:10.651Z        INFO    Detecting Alpine vulnerabilities...
-2021-02-20T14:35:10.652Z        INFO    Trivy skips scanning programming language libraries because no supported file was detected
-2021-02-20T14:35:10.652Z        WARN    This OS version is no longer supported by the distribution: alpine 3.7.0
-2021-02-20T14:35:10.652Z        WARN    The vulnerability detection may be insufficient because security updates are not provided
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.16.0 --no-progress gcr.io/cadvisor/cadvisor:v0.37.5
+2021-02-20T14:46:52.918Z        INFO    Need to update DB
+2021-02-20T14:46:52.918Z        INFO    Downloading DB...
+2021-02-20T14:46:57.387Z        INFO    Detecting Alpine vulnerabilities...
+2021-02-20T14:46:57.388Z        INFO    Trivy skips scanning programming language libraries because no supported file was detected
 
-google/cadvisor:v0.32.0 (alpine 3.7.0)
-======================================
-Total: 10 (UNKNOWN: 0, LOW: 0, MEDIUM: 3, HIGH: 5, CRITICAL: 2)
+gcr.io/cadvisor/cadvisor:v0.37.5 (alpine 3.12.1)
+================================================
+Total: 9 (UNKNOWN: 0, LOW: 2, MEDIUM: 5, HIGH: 2, CRITICAL: 0)
 ```
