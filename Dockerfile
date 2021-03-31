@@ -1,6 +1,6 @@
-FROM gcr.io/cadvisor/cadvisor:v0.37.5 AS cadvisor
+FROM gcr.io/cadvisor/cadvisor:v0.39.0 AS cadvisor
 
-FROM alpine:3.13.2
+FROM alpine:3.13.3
 LABEL website="Secure Docker Images https://secureimages.dev"
 LABEL description="We secure your business from scratch."
 LABEL maintainer="support@secureimages.dev"
