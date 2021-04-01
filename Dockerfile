@@ -1,6 +1,6 @@
 FROM gcr.io/cadvisor/cadvisor:v0.39.0 AS cadvisor
 
-FROM alpine:3.13.3
+FROM alpine:3.13.4
 LABEL website="Secure Docker Images https://secureimages.dev"
 LABEL description="We secure your business from scratch."
 LABEL maintainer="support@secureimages.dev"
@@ -11,7 +11,7 @@ RUN apk --no-cache add libc6-compat device-mapper findutils zfs ndctl && \
     rm -rf /var/cache/apk/*
 
 COPY --from=cadvisor /usr/local/lib/libpfm.so* /usr/local/lib/
-# COPY --from=cadvisor /usr/local/lib/libipmctl.so* /usr/local/lib/
+COPY --from=cadvisor /usr/local/lib/libipmctl.so* /usr/local/lib/
 COPY --from=cadvisor /usr/bin/cadvisor /usr/bin/
 
 EXPOSE 8080
